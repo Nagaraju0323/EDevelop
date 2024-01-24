@@ -10,7 +10,8 @@ import XCTest
 final class EDeveloperTests: XCTestCase {
 
     func test_ApiRequestload() throws {
-        
+        let client  = HttpRequest()
+        XCTAssertNil(client.url)
     }
     
 

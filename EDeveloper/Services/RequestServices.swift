@@ -8,12 +8,9 @@
 import Foundation
 
 
-class RequestResponse {
+class HttpRequest {
 
-    let request : URLRequest?
-    init(request: URLRequest?) {
-        self.request = request
-    }
+    var url : URL?
     
 }
 
