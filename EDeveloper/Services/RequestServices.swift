@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RequestServices {
+class RemoteFeedLoader {
     let httpRequet : HttpRequest
     init(httpRequet: HttpRequest) {
         self.httpRequet = httpRequet

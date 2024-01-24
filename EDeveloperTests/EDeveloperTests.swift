@@ -16,10 +16,16 @@ final class EDeveloperTests: XCTestCase {
     
     func test_URLRequestload() throws {
         let client  = HttpRequest()
-        let sut = RequestServices(httpRequet: client)
+        let sut = RemoteFeedLoader(httpRequet: client)
         sut.load()
         XCTAssertNotNil(client.url)
     }
     
+    func test_URLRequestloadedValudURL() throws {
+        let client  = HttpRequest()
+        let sut = RemoteFeedLoader(httpRequet: client)
+        sut.load()
+        XCTAssertEqual(client.url,URL(string: "http://google.com"))
+    }
 
 }
