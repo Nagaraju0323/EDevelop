@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E672B96F2B714DA900A384FE /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E672B96E2B714DA900A384FE /* APIRequest.swift */; };
 		E68284292B618517007D01AD /* EDeveloperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68284282B618517007D01AD /* EDeveloperApp.swift */; };
-		E682842B2B618517007D01AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E682842A2B618517007D01AD /* ContentView.swift */; };
+		E682842B2B618517007D01AD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E682842A2B618517007D01AD /* LoginView.swift */; };
 		E682842D2B61851A007D01AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E682842C2B61851A007D01AD /* Assets.xcassets */; };
 		E68284302B61851A007D01AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E682842F2B61851A007D01AD /* Preview Assets.xcassets */; };
 		E68284322B61851A007D01AD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68284312B61851A007D01AD /* Persistence.swift */; };
@@ -32,7 +32,7 @@
 		E672B96E2B714DA900A384FE /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E68284252B618517007D01AD /* EDeveloper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EDeveloper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E68284282B618517007D01AD /* EDeveloperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDeveloperApp.swift; sourceTree = "<group>"; };
-		E682842A2B618517007D01AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E682842A2B618517007D01AD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E682842C2B61851A007D01AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E682842F2B61851A007D01AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E68284312B61851A007D01AD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				E68284282B618517007D01AD /* EDeveloperApp.swift */,
-				E682842A2B618517007D01AD /* ContentView.swift */,
+				E682842A2B618517007D01AD /* LoginView.swift */,
 				E682842C2B61851A007D01AD /* Assets.xcassets */,
 				E68284312B61851A007D01AD /* Persistence.swift */,
 				E682843B2B618526007D01AD /* Services */,
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E68284322B61851A007D01AD /* Persistence.swift in Sources */,
-				E682842B2B618517007D01AD /* ContentView.swift in Sources */,
+				E682842B2B618517007D01AD /* LoginView.swift in Sources */,
 				E68284352B61851A007D01AD /* EDeveloper.xcdatamodeld in Sources */,
 				E682843D2B61854E007D01AD /* RequestServices.swift in Sources */,
 				E672B96F2B714DA900A384FE /* APIRequest.swift in Sources */,
