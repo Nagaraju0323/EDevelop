@@ -14,8 +14,7 @@ class RequestService {
         self.apiRequest = apiRequest
     }
     
-    func loadService() {
-        apiRequest.load(url:URL(string: "http://google.com")!)
+    func loadService() {      
         apiRequest.load(url:URL(string: "http://google.com")!)
     }
 }
