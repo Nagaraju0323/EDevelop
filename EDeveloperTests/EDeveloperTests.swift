@@ -19,21 +19,21 @@ final class EDeveloperTests: XCTestCase {
     func test_apiRequestedLoadService_loadValid() {
         
         let (sut,client) = MakeSUT()
-        sut.loadService()
+        sut.loadService{_ in }
         XCTAssertNotNil(client.requestURL.isEmpty)
     }
     
     func test_apiRequestLoadService_ApiIsValid() {
         let (sut,client) = MakeSUT()
-        sut.loadService()
+        sut.loadService{_ in }
         let url = URL(string: "http://google.com")
         XCTAssertEqual(client.requestURL, [url],"Both is not same")
     }
     
     func test_apiRequestLoad_apiLoadservcie_MultipleTimes() {
         let (sut,client) = MakeSUT()
-        sut.loadService()
-        sut.loadService()
+        sut.loadService{_ in }
+        sut.loadService{_ in }
         let url = URL(string: "http://google.com")
         XCTAssertEqual(client.requestURL, [url,url],"Both is not same")
     }
@@ -58,16 +58,18 @@ final class EDeveloperTests: XCTestCase {
     
     private class APIRequestSPY: httpClient {
         
-        var requestURL = [URL]()
-        var error : Error?
-        var completions = [(Error) -> Void]()
+      
+        private var message = [(url:URL,completion:(Error) -> Void)]()
+        var requestURL:[URL] {
+            return message.map{$0.url }
+        }
+        
         func load(url: URL,completion:@escaping(Error) -> Void) {
-            completions.append(completion)
-            requestURL.append(url)
+            message.append((url,completion))
         }
         
         func complete(with error:Error,at index :Int = 0) {
-            completions[index](error)
+            message[index].completion(error)
         }
     }
 }

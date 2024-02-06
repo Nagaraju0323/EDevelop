@@ -18,7 +18,7 @@ class RequestService {
         case Connectivity
     }
     
-    func loadService(completin:@escaping(Error) -> Void = { _ in  }) {
+    func loadService(completin:@escaping(Error) -> Void ) {
         apiRequest.load(url:URL(string: "http://google.com")!){ error in
             completin(.Connectivity)
             
