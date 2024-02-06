@@ -40,9 +40,10 @@ final class EDeveloperTests: XCTestCase {
     
     func test_load_deliversErrorOnClientError() {
         let (sut,client) = MakeSUT()
-        client.error = NSError(domain: "Text", code: 0)
         var capturedError = [RequestService.Error]()
         sut.loadService { capturedError.append($0)}
+        let clientError = NSError(domain: "Text", code: 0)
+        client.completions[0](clientError)
         XCTAssertEqual(capturedError, [.Connectivity])
     }
     
@@ -59,10 +60,9 @@ final class EDeveloperTests: XCTestCase {
         
         var requestURL = [URL]()
         var error : Error?
-        func load(url: URL,completion:(Error) -> Void) {
-            if let error = error {
-                completion(error)
-            }
+        var completions = [(Error) -> Void]()
+        func load(url: URL,completion:@escaping(Error) -> Void) {
+            completions.append(completion)
             requestURL.append(url)
         }
     }
