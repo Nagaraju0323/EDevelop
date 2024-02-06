@@ -14,7 +14,7 @@ class RequestService {
         self.apiRequest = apiRequest
     }
     
-    func loadService() {      
+    func loadService(completin:(Error) -> Void = { _ in  }) {      
         apiRequest.load(url:URL(string: "http://google.com")!)
     }
 }

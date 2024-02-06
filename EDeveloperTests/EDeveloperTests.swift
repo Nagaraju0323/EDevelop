@@ -38,6 +38,12 @@ final class EDeveloperTests: XCTestCase {
         XCTAssertEqual(client.requestURL, [url,url],"Both is not same")
     }
     
+    func test_load_deliversErrorOnClientError() {
+        let (sut,client) = MakeSUT()
+        var capturedError : Error?
+        sut.loadService { error in capturedError = error}
+    }
+    
     //MARK: - helper Function
     
     private func MakeSUT(url:URL = URL(string: "http://google.com")!) -> (sut:RequestService,client:APIRequestSPY) {
@@ -48,17 +54,10 @@ final class EDeveloperTests: XCTestCase {
     
     
     private class APIRequestSPY: httpClient {
-       
-//        var urlRequest:URL?
         var requestURL = [URL]()
         
         func load(url: URL) {
-//            urlRequest = url
             requestURL.append(url)
         }
-        
-        
     }
-    
-
 }
