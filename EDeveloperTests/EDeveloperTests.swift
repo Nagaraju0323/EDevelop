@@ -40,8 +40,10 @@ final class EDeveloperTests: XCTestCase {
     
     func test_load_deliversErrorOnClientError() {
         let (sut,client) = MakeSUT()
-        var capturedError : Error?
+        client.error = NSError(domain: "Text", code: 0)
+        var capturedError : RequestService.Error?
         sut.loadService { error in capturedError = error}
+        XCTAssertEqual(capturedError, .Connectivity)
     }
     
     //MARK: - helper Function
@@ -54,9 +56,13 @@ final class EDeveloperTests: XCTestCase {
     
     
     private class APIRequestSPY: httpClient {
-        var requestURL = [URL]()
         
-        func load(url: URL) {
+        var requestURL = [URL]()
+        var error : Error?
+        func load(url: URL,completion:(Error) -> Void) {
+            if let error = error {
+                completion(error)
+            }
             requestURL.append(url)
         }
     }

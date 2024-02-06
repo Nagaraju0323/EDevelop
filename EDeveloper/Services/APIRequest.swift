@@ -13,21 +13,30 @@ class RequestService {
     init(apiRequest: httpClient = APIRequest()) {
         self.apiRequest = apiRequest
     }
+
+    public enum Error:Swift.Error {
+        case Connectivity
+    }
     
-    func loadService(completin:(Error) -> Void = { _ in  }) {      
-        apiRequest.load(url:URL(string: "http://google.com")!)
+    func loadService(completin:(Error) -> Void = { _ in  }) {
+        apiRequest.load(url:URL(string: "http://google.com")!){ error in
+            completin(.Connectivity)
+            
+        }
     }
 }
 
 public protocol httpClient  {
-    func load(url:URL)
+    func load(url:URL,completion:(Error) -> Void)
 }
 
 
 
 public final class APIRequest :httpClient {
-    var urlRequest:URL?
-    public func load(url:URL) {
+    public func load(url: URL, completion: (Error) -> Void) {
         urlRequest = url
     }
+    
+    var urlRequest:URL?
+    
 }
