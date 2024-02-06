@@ -41,9 +41,9 @@ final class EDeveloperTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut,client) = MakeSUT()
         client.error = NSError(domain: "Text", code: 0)
-        var capturedError : RequestService.Error?
-        sut.loadService { error in capturedError = error}
-        XCTAssertEqual(capturedError, .Connectivity)
+        var capturedError = [RequestService.Error]()
+        sut.loadService { capturedError.append($0)}
+        XCTAssertEqual(capturedError, [.Connectivity])
     }
     
     //MARK: - helper Function
